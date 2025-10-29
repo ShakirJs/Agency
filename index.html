@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Linkrise Agency</title>
+  
+  <link href="style.css" rel="stylesheet">
+   <link rel="icon" type="image/x-icon" href="images/faviconpic-removebg-preview.png">
+
+</head>
+  <body
+    x-data="{ page: 'home', 'darkMode': true, 'stickyMenu': false, 'navigationOpen': false, 'scrollTop': false }"
+    x-init="
+         darkMode = JSON.parse(localStorage.getItem('darkMode'));
+         $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
+    :class="{'b eh': darkMode === true}"
+  >
+    <!-- ===== Header Start ===== -->
+    <header
+  class="g s r vd ya cj"
+  :class="{ 'hh sm _k dj bl ll' : stickyMenu }"
+  @scroll.window="stickyMenu = (window.pageYOffset > 20) ? true : false"
+>
+  <div class="bb ze ki xn 2xl:ud-px-0 oo wf yf i">
+    <div class="vd to/4 tc wf yf">
+     <a href="index.html" style="font-size: 28px; font-weight: 800; color: #2563eb; display: inline-block; line-height: 1; margin-top: 4px;">
+  LinkRise Agency
+</a>
+
+
+
+      <!-- Hamburger Toggle BTN -->
+      <button class="po rc" @click="navigationOpen = !navigationOpen">
+        <span class="rc i pf re pd">
+          <span class="du-block h q vd yc">
+            <span class="rc i r s eh um tg te rd eb ml jl dl" :class="{ 'ue el': !navigationOpen }"></span>
+            <span class="rc i r s eh um tg te rd eb ml jl fl" :class="{ 'ue qr': !navigationOpen }"></span>
+            <span class="rc i r s eh um tg te rd eb ml jl gl" :class="{ 'ue hl': !navigationOpen }"></span>
+          </span>
+          <span class="du-block h q vd yc lf">
+            <span class="rc eh um tg ml jl el h na r ve yc" :class="{ 'sd dl': !navigationOpen }"></span>
+            <span class="rc eh um tg ml jl qr h s pa vd rd" :class="{ 'sd rr': !navigationOpen }"></span>
+          </span>
+        </span>
+      </button>
+      <!-- Hamburger Toggle BTN -->
+    </div>
+
+    <div
+      class="vd wo/4 sd qo f ho oo wf yf"
+      :class="{ 'd hh rm sr td ud qg ug jc yh': navigationOpen }"
+    >
+      <nav>
+        <ul class="tc _o sf yo cg ep">
+          <li><a href="index.html" class="xl" :class="{ 'mk': page === 'home' }">Home</a></li>
+          <li><a href="index.html#features" class="xl">Features</a></li>
+          <li><a href="blog-grid.html" class="xl">Blogs</a></li>
+          <li><a href="index.html#support" class="xl">Support</a></li>
+        </ul>
+      </nav>
+
+      <div class="tc wf ig pb no">
+        <div class="pc h io pa ra" :class="navigationOpen ? '!-ud-visible' : 'd'">
+          <label class="rc ab i">
+            <input type="checkbox" :value="darkMode" @change="darkMode = !darkMode" class="pf vd yc uk h r za ab" />
+            <!-- Icon Sun -->
+            <svg :class="{ 'wn' : page === 'home', 'xh' : page === 'home' && stickyMenu }" class="th om" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12.0908 18.6363C10.3549 18.6363 8.69 17.9467 7.46249 16.7192C6.23497 15.4916 5.54537 13.8268 5.54537 12.0908C5.54537 10.3549 6.23497 8.69 7.46249 7.46249C8.69 6.23497 10.3549 5.54537 12.0908 5.54537C13.8268 5.54537 15.4916 6.23497 16.7192 7.46249C17.9467 8.69 18.6363 10.3549 18.6363 12.0908C18.6363 13.8268 17.9467 15.4916 16.7192 16.7192C15.4916 17.9467 13.8268 18.6363 12.0908 18.6363ZM12.0908 16.4545C13.2481 16.4545 14.358 15.9947 15.1764 15.1764C15.9947 14.358 16.4545 13.2481 16.4545 12.0908C16.4545 10.9335 15.9947 9.8236 15.1764 9.00526C14.358 8.18692 13.2481 7.72718 12.0908 7.72718C10.9335 7.72718 9.8236 8.18692 9.00526 9.00526C8.18692 9.8236 7.72718 10.9335 7.72718 12.0908C7.72718 13.2481 8.18692 14.358 9.00526 15.1764C9.8236 15.9947 10.9335 16.4545 12.0908 16.4545ZM10.9999 0.0908203H13.1817V3.36355H10.9999V0.0908203ZM10.9999 20.8181H13.1817V24.0908H10.9999V20.8181ZM2.83446 4.377L4.377 2.83446L6.69082 5.14828L5.14828 6.69082L2.83446 4.37809V4.377ZM17.4908 19.0334L19.0334 17.4908L21.3472 19.8046L19.8046 21.3472L17.4908 19.0334ZM19.8046 2.83337L21.3472 4.377L19.0334 6.69082L17.4908 5.14828L19.8046 2.83446V2.83337ZM5.14828 17.4908L6.69082 19.0334L4.377 21.3472L2.83446 19.8046L5.14828 17.4908ZM24.0908 10.9999V13.1817H20.8181V10.9999H24.0908ZM3.36355 10.9999V13.1817H0.0908203V10.9999H3.36355Z" fill=""/>
+            </svg>
+            <!-- Icon Sun -->
+            <img class="xc nm" src="images/icon-moon.svg" alt="Moon" />
+          </label>
+        </div>
+
+        <a href="signin.html" :class="{ 'nk yl' : page === 'home', 'ok' : page === 'home' && stickyMenu }" class="ek pk xl">Sign In</a>
+        <a href="signup.html" :class="{ 'hh/[0.15]' : page === 'home', 'sh' : page === 'home' && stickyMenu }" class="lk gh dk rg tc wf xf _l gi hi">Sign Up</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+    <!-- ===== Header End ===== -->
+
+    <main>
+      <!-- ===== Hero Start ===== -->
+      <section class="gj do ir hj sp jr i pg">
+        <!-- Hero Images -->
+        <div class="xc fn zd/2 2xl:ud-w-187.5 bd 2xl:ud-h-171.5 h q r">
+          <img src="images/shape-01.svg" alt="shape" class="xc 2xl:ud-block h t -ud-left-[10%] ua" />
+          <img src="images/shape-02.svg" alt="shape" class="xc 2xl:ud-block h u p va" />
+          <img src="images/shape-03.svg" alt="shape" class="xc 2xl:ud-block h v w va" />
+          <img src="images/shape-04.svg" alt="shape" class="h q r" />
+          <img src="images/hero.png" alt="Woman" class="h q r ua" />
+        </div>
+
+        <!-- Hero Content -->
+        <div class="bb ze ki xn 2xl:ud-px-0">
+          <div class="tc _o">
+            <div class="animate_left jn/2">
+              <h1 class="fk vj zp or kk wm wb">Experts in Digital Marketing, SEO, Guest Posting & Web Development.</h1>
+              <p class="fq">
+                Building Brands that Rank, Engage & Convert with SEO, Guest Posting, Web Development & Digital Marketing.
+              </p>
+
+              <div class="tc tf yo zf mb">
+                <a href="index.html#support" class="ek jk lk gh gi hi rg ml il vc _d _l"
+                  >Get Started Now</a
+                >
+
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ===== Hero End ===== -->
+
+      <!-- ===== Small Features Start ===== -->
+      <section id="features">
+        <div class="bb ze ki yn 2xl:ud-px-12.5">
+          <div class="tc uf zo xf ap zf bp mq">
+            <!-- Small Features Item -->
+            <div class="animate_top kn to/3 tc cg oq">
+              <div class="tc wf xf cf ae cd rg mh">
+                <img src="images/icon-01.svg" alt="Icon" />
+              </div>
+              <div>
+                <h4 class="ek yj go kk wm xb">24/7 Support</h4>
+                <p>Available 24/7 to support your digital growth.</p>
+              </div>
+            </div>
+
+            <!-- Small Features Item -->
+            <div class="animate_top kn to/3 tc cg oq">
+              <div class="tc wf xf cf ae cd rg nh">
+                <img src="images/icon-02.svg" alt="Icon" />
+              </div>
+              <div>
+                <h4 class="ek yj go kk wm xb">Take Ownership</h4>
+                <p>We take ownership of every project we handle.</p>
+              </div>
+            </div>
+
+            <!-- Small Features Item -->
+            <div class="animate_top kn to/3 tc cg oq">
+              <div class="tc wf xf cf ae cd rg oh">
+                <img src="images/icon-03.svg" alt="Icon" />
+              </div>
+              <div>
+                <h4 class="ek yj go kk wm xb">Team Work</h4>
+                <p>We believe in collaboration and strong teamwork.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ===== Small Features End ===== -->
+
+      <!-- ===== About Start ===== -->
+      <section class="ji gp uq 2xl:ud-py-35 pg">
+        <div class="bb ze ki xn wq">
+          <div class="tc wf gg qq">
+            <!-- About Images -->
+            <div class="animate_left xc gn gg jn/2 i">
+              <div>
+                <img src="images/shape-05.svg" alt="Shape" class="h -ud-left-5 x" />
+                <img src="images/about-01.png" alt="About" class="ib" />
+                <img src="images/about-02.png" alt="About" />
+              </div>
+              <div>
+                <img src="images/shape-06.svg" alt="Shape" />
+                <img src="images/about-03.png" alt="About" class="ob gb" />
+                <img src="images/shape-07.svg" alt="Shape" class="bb" />
+              </div>
+            </div>
+
+            <!-- About Content -->
+            <div class="animate_right jn/2">
+              <h4 class="ek yj mk gb">Why Choose Us</h4>
+              <h2 class="fk vj zp pr kk wm qb">We Make Our customers happy by giving Best services.</h2>
+              <p class="uo">Choosing us means partnering with a team that delivers results, not promises. We combine strategy, creativity, and technology to help your brand stand out and grow with confidence.</p>
+
+              
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ===== About End ===== -->
+
+      <!-- ===== Team Start ===== -->
+      <section class="i pg ji gp uq">
+        <!-- Bg Shapes -->
+        <span class="rc h s r vd fd/5 fh rm"></span>
+        <img src="images/shape-08.svg" alt="Shape Bg" class="h q r" />
+        <img src="images/shape-09.svg" alt="Shape" class="of h y z/2" />
+        <img src="images/shape-10.svg" alt="Shape" class="h _ aa" />
+        <img src="images/shape-11.svg" alt="Shape" class="of h m ba" />
+
+        <!-- Section Title Start -->
+        <div
+          x-data="{ sectionTitle: `Meet With Our Creative Dedicated Team`, sectionTitleText: `Our team blends creativity, expertise, and passion to bring your ideas to life. We work together to deliver innovative solutions that drive success.`}"
+        >
+          <div class="animate_top bb ze rj ki xn vq">
+    <h2
+            x-text="sectionTitle"
+            class="fk vj pr kk wm on/5 gq/2 bb _b"
+    >
+    </h2>
+    <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
+</div>
+
+
+        </div>
+        <!-- Section Title End -->
+
+        <div class="bb ze i va ki xn xq jb jo">
+          <div class="wc qf pn xo gg cp">
+            <!-- Team Item -->
+            <div class="animate_top rj">
+              <div class="c i pg z-1">
+                <img class="vd" src="images/jameeel.jpg" alt="Team" />
+
+                <div class="ef im nl il">
+                  <span class="h -ud-left-5 -ud-bottom-21 rc de gd gh if wa"></span>
+                  <span class="h s p rc vd hd mh va"></span>
+                  <div class="h s p vd ij jj xa">
+                    <ul class="tc xf wf gg">
+                     
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <h4 class="yj go kk wm ob zb">M Jameel</h4>
+              <p>Founder & CEO</p>
+            </div>
+
+            <!-- Team Item -->
+            <div class="animate_top rj">
+              <div class="c i pg z-1">
+                <img class="vd" src="images/tafi.jpg" alt="Team" />
+
+                <div class="ef im nl il">
+                  <span class="h -ud-left-5 -ud-bottom-21 rc de gd gh if wa"></span>
+                  <span class="h s p rc vd hd mh va"></span>
+                  <div class="h s p vd ij jj xa">
+                    <ul class="tc xf wf gg">
+                     
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <h4 class="yj go kk wm ob zb">Altaf Hussain</h4>
+              <p>SEO Specialist</p>
+            </div>
+
+            <!-- Team Item -->
+            <div class="animate_top rj">
+              <div class="c i pg z-1">
+                <img class="vd" src="images/khalilo.jpg" alt="Team" />
+
+                <div class="ef im nl il">
+                  <span class="h -ud-left-5 -ud-bottom-21 rc de gd gh if wa"></span>
+                  <span class="h s p rc vd hd mh va"></span>
+                  <div class="h s p vd ij jj xa">
+                    <ul class="tc xf wf gg">
+                     
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <h4 class="yj go kk wm ob zb">M Khalil</h4>
+              <p>Digital Marketing Specialist</p>
+            </div>
+          </div>
+        </div>
+         <div class="bb ze i va ki xn xq jb jo">
+          <div class="wc qf pn xo gg cp">
+            <!-- Team Item -->
+            <div class="animate_top rj">
+              <div class="c i pg z-1">
+                <img class="vd" src="images/hanfo.jpg" alt="Team" />
+
+                <div class="ef im nl il">
+                  <span class="h -ud-left-5 -ud-bottom-21 rc de gd gh if wa"></span>
+                  <span class="h s p rc vd hd mh va"></span>
+                  <div class="h s p vd ij jj xa">
+                    <ul class="tc xf wf gg">
+                     
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <h4 class="yj go kk wm ob zb">M Hanif</h4>
+              <p>Content Strategist</p>
+            </div>
+
+            <!-- Team Item -->
+            <div class="animate_top rj">
+              <div class="c i pg z-1">
+                <img class="vd" src="images/shaka.jpg" alt="Team" />
+
+                <div class="ef im nl il">
+                  <span class="h -ud-left-5 -ud-bottom-21 rc de gd gh if wa"></span>
+                  <span class="h s p rc vd hd mh va"></span>
+                  <div class="h s p vd ij jj xa">
+                    <ul class="tc xf wf gg">
+                     
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <h4 class="yj go kk wm ob zb">Shakir Khan</h4>
+              <p>Web & App Developer</p>
+            </div>
+
+          
+          </div>
+        </div>
+      </section>
+      <!-- ===== Team End ===== -->
+
+      <!-- ===== Services Start ===== -->
+      <section class="lj tp kr">
+        <!-- Section Title Start -->
+        <div
+          x-data="{ sectionTitle: `We Offer The Best Quality Service for You`, sectionTitleText: `From strategy to execution, we deliver top-notch solutions in Digital Marketing,  SEO, Guest Posting, Link Building, Content Writing and Web Development — ensuring results that exceed expectations.`}"
+        >
+          <div class="animate_top bb ze rj ki xn vq">
+    <h2
+            x-text="sectionTitle"
+            class="fk vj pr kk wm on/5 gq/2 bb _b"
+    >
+    </h2>
+    <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
+</div>
+
+
+        </div>
+        <!-- Section Title End -->
+
+        <div class="bb ze ki xn yq mb en">
+          <div class="wc qf pn xo ng">
+            <!-- Digital Marketing -->
+            <div class="animate_top sg oi pi zq ml il am cn _m">
+  <img src="images/icon-04.svg" alt="Digital Marketing Icon" />
+  <h4 class="ek zj kk wm nb _b">Digital Marketing Experts</h4>
+  <p>We help brands grow online with result-driven strategies that boost traffic and engagement.</p>
+</div>
+
+            <!-- SEO -->
+            <div class="animate_top sg oi pi zq ml il am cn _m">
+  <img src="images/icon-05.svg" alt="SEO Icon" />
+  <h4 class="ek zj kk wm nb _b">Powerful SEO Solutions</h4>
+  <p>Boost your website rankings, drive organic traffic, and grow your online visibility with our proven SEO strategies.</p>
+</div>
+
+
+           <!-- Guest Posting -->
+<div class="animate_top sg oi pi zq ml il am cn _m">
+  <img src="images/icon-06.svg" alt="Guest Posting Icon" />
+  <h4 class="ek zj kk wm nb _b">Guest Posting</h4>
+  <p>Build authority and gain quality backlinks with high-domain guest posting opportunities.</p>
+</div>
+
+<!-- Link Building -->
+<div class="animate_top sg oi pi zq ml il am cn _m">
+  <img src="images/icon-07.svg" alt="Link Building Icon" />
+  <h4 class="ek zj kk wm nb _b">Link Building</h4>
+  <p>Enhance your site’s credibility with strategic link-building that boosts search rankings.</p>
+</div>
+
+<!-- Content Writing -->
+<div class="animate_top sg oi pi zq ml il am cn _m">
+  <img src="images/icon-05.svg" alt="Content Writing Icon" />
+  <h4 class="ek zj kk wm nb _b">Content Writing</h4>
+  <p>Engage your audience with SEO-optimized, high-quality content that drives conversions.</p>
+</div>
+
+<!-- Web Development -->
+<div class="animate_top sg oi pi zq ml il am cn _m">
+  <img src="images/icon-06.svg" alt="Web Development Icon" />
+  <h4 class="ek zj kk wm nb _b">Web Development</h4>
+  <p>We craft responsive, fast, and scalable websites designed to grow your digital presence.</p>
+</div>
+
+          </div>
+        </div>
+      </section>
+      <!-- ===== Services End ===== -->
+
+  
+
+      <!-- ===== Projects Start ===== -->
+      <section class="pg pj vp mr oj wp nr">
+        <!-- Section Title Start -->
+        <div
+          x-data="{ sectionTitle: `We Offer Great Affordable Premium Prices.`, sectionTitleText: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.`}"
+        >
+          <div class="animate_top bb ze rj ki xn vq">
+    <h2
+            x-text="sectionTitle"
+            class="fk vj pr kk wm on/5 gq/2 bb _b"
+    >
+    </h2>
+    <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
+</div>
+
+
+        </div>
+        <!-- Section Title End -->
+
+        <div class="bb ze ki xn 2xl:ud-px-0 jb" x-data="{filterTab: 1}">
+          <!-- Porject Tab -->
+          <div
+            class="projects-tab _e bb tc uf wf xf cg rg hh rm vk xm si ti fc"
+          >
+            <button
+              data-filter="*"
+              @click="filterTab = 1"
+              :class="{ 'gh lk' : filterTab === 1 }"
+              class="project-tab-btn ek rg ml il vi mi"
+            >
+              All
+            </button>
+           
+          </div>
+
+          <!-- Projects item wrapper -->
+          <div class="projects-wrapper tc -ud-mx-5">
+            <div class="project-sizer"></div>
+            <!-- Project Item -->
+            <div class="project-item wi fb vd jn/2 to/3 branding ecommerce">
+              <div class="c i pg sg z-1">
+                <img src="images/Project-2.PNG" alt="Project" />
+
+                <div 
+                  class="h s r df nl kl im tc sf wf xf vd yc sg al hh/20 z-10"
+                >
+                  <h4 class="ek tj kk hc">The US Leaders</h4>
+                  <p>Branded Ecommerce</p>
+                  <a
+                    class="c tc wf xf ie ld rg _g dh ml il ph jm km jc"
+                    href="https://theusaleaders.com/articles/fast-track-methods/"
+                  >
+                    <svg class="th lm ml il" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10.4763 6.16664L6.00634 1.69664L7.18467 0.518311L13.6663 6.99998L7.18467 13.4816L6.00634 12.3033L10.4763 7.83331H0.333008V6.16664H10.4763Z" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project Item -->
+            <div class="project-item wi fb vd jn/2 to/3 digital">
+              <div class="c i pg sg z-1">
+                <img src="images/WhatsApp Image 2025-10-15 at 21.14.04_a7ebfa87.jpg" alt="Project" />
+
+                <div
+                  class="h s r df nl kl im tc sf wf xf vd yc sg al hh/20 z-10"
+                >
+                  <h4 class="ek tj kk hc">The Globe & Mail</h4>
+                 
+                  <a
+                    class="c tc wf xf ie ld rg _g dh ml il ph jm km jc"
+                    href="https://www.theglobeandmail.com/investing/markets/markets-news/GetNews/33826665/growing-interest-in-exness-partner-code-l3fesph7-as-traders-seek-higher-daily-rebates/"
+                  >
+                    <svg class="th lm ml il" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10.4763 6.16664L6.00634 1.69664L7.18467 0.518311L13.6663 6.99998L7.18467 13.4816L6.00634 12.3033L10.4763 7.83331H0.333008V6.16664H10.4763Z" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project Item -->
+            <div class="project-item wi fb vd jn/2 to/3 branding ecommerce">
+              <div class="c i pg sg z-1">
+                <img src="images/pp.jpg" alt="Project" />
+
+                <div
+                  class="h s r df nl kl im tc sf wf xf vd yc sg al hh/20 z-10"
+                >
+                  <h4 class="ek tj kk hc">Benziga</h4>
+                 
+                  <a
+                    class="c tc wf xf ie ld rg _g dh ml il ph jm km jc"
+                    href="https://www.benzinga.com/content/47686869/the-rising-importance-of-smart-stock-trading-strategies-in-todays-market"
+                  >
+                    <svg class="th lm ml il" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10.4763 6.16664L6.00634 1.69664L7.18467 0.518311L13.6663 6.99998L7.18467 13.4816L6.00634 12.3033L10.4763 7.83331H0.333008V6.16664H10.4763Z" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project Item -->
+            <div class="project-item wi fb vd vo/3 digital ecommerce">
+              <div class="c i pg sg z-1">
+                <img src="images/sj.PNG" alt="Project" />
+
+                <div
+                  class="h s r df nl kl im tc sf wf xf vd yc sg al hh/20 z-10"
+                >
+                  <h4 class="ek tj kk hc">Digital Journal</h4>
+                  
+                  <a
+                    class="c tc wf xf ie ld rg _g dh ml il ph jm km jc"
+                    href="https://www.digitaljournal.com/pr/news/indnewswire/inside-program-connecting-millions-americans-1634066204.html"
+                  >
+                    <svg class="th lm ml il" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10.4763 6.16664L6.00634 1.69664L7.18467 0.518311L13.6663 6.99998L7.18467 13.4816L6.00634 12.3033L10.4763 7.83331H0.333008V6.16664H10.4763Z" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ===== Projects End ===== -->
+
+      <!-- ===== Testimonials Start ===== -->
+      <section class="hj rp hr">
+        <!-- Section Title Start -->
+        <div
+          x-data="{ sectionTitle: `Client’s Testimonials`, sectionTitleText: `Our clients trust us for delivering real results. Here’s what they say about our digital marketing, SEO, and web development services.`}"
+        >
+          <div class="animate_top bb ze rj ki xn vq">
+    <h2
+            x-text="sectionTitle"
+            class="fk vj pr kk wm on/5 gq/2 bb _b"
+    >
+    </h2>
+    <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
+</div>
+
+
+        </div>
+        <!-- Section Title End -->
+
+        <div class="bb ze ki xn ar">
+          <div class="animate_top jb cq">
+            <!-- Slider main container -->
+            <div class="swiper testimonial-01">
+              <!-- Additional required wrapper -->
+              <div class="swiper-wrapper">
+  <!-- Guest Posting -->
+  <div class="swiper-slide">
+    <div class="i hh rm sg vk xm bi qj">
+      <span class="rc je md/2 gh xg h q r"></span>
+      <span class="rc je md/2 mh yg h q p"></span>
+      <div class="tc sf rn tn un zf dp">
+        <img class="bf" src="images/emily-removebg-preview.png" alt="User" height="50" />
+        <div>
+          <img src="images/icon-quote.svg" alt="Quote" />
+          <p class="ek ik xj _p kc fb">
+            Their guest posting service helped our site gain high-quality backlinks and improve domain authority within weeks. Excellent communication and fast delivery!
+          </p>
+          <div class="tc yf vf">
+            <div>
+              <span class="rc ek xj kk wm zb">Emily Shelton</span>
+              <span class="rc">Head of Marketing </span>
+               <span class="rc">HTH Communications</span>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEO -->
+  <div class="swiper-slide">
+    <div class="i hh rm sg vk xm bi qj">
+      <span class="rc je md/2 gh xg h q r"></span>
+      <span class="rc je md/2 mh yg h q p"></span>
+      <div class="tc sf rn tn un zf dp">
+        <img class="bf" src="images/olga-removebg-preview.png" alt="User" />
+        <div>
+          <img src="images/icon-quote.svg" alt="Quote" />
+          <p class="ek ik xj _p kc fb">
+            Our website’s traffic grew by 200% in three months thanks to their SEO strategy. Highly professional and data-driven team — totally worth it!
+          </p>
+          <div class="tc yf vf">
+            <div>
+              <span class="rc ek xj kk wm zb">Olga</span>
+              <span class="rc">Marketing Head of Perfume.ae</span>
+            </div>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Digital Marketing -->
+  <div class="swiper-slide">
+    <div class="i hh rm sg vk xm bi qj">
+      <span class="rc je md/2 gh xg h q r"></span>
+      <span class="rc je md/2 mh yg h q p"></span>
+      <div class="tc sf rn tn un zf dp">
+        <img class="bf" src="images/Abdullah_Balki-removebg-preview.png" alt="User" />
+        <div>
+          <img src="images/icon-quote.svg" alt="Quote" />
+          <p class="ek ik xj _p kc fb">
+            Their digital marketing campaign boosted our brand visibility and leads. The team truly understands audience engagement and conversion.
+          </p>
+          <div class="tc yf vf">
+            <div>
+              <span class="rc ek xj kk wm zb">Abdullah Balki</span>
+              <span class="rc">Founder 7CGI</span>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Web Development -->
+  <div class="swiper-slide">
+    <div class="i hh rm sg vk xm bi qj">
+      <span class="rc je md/2 gh xg h q r"></span>
+      <span class="rc je md/2 mh yg h q p"></span>
+      <div class="tc sf rn tn un zf dp">
+        <img class="bf" src="images/ice-removebg-preview.png" alt="User" />
+        <div>
+          <img src="images/icon-quote.svg" alt="Quote" />
+          <p class="ek ik xj _p kc fb">
+           Our backlink strategy was handled perfectly. They built high-quality links that boosted our rankings fast. Professional, reliable, and highly recommended!
+
+          </p>
+          <div class="tc yf vf">
+            <div>
+              <span class="rc ek xj kk wm zb">Ice Mangabat</span>
+              <span class="rc">Production Team Leader at NO-BS Marketplace</span>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+              <!-- If we need navigation -->
+              <div class="tc wf xf fg jb">
+                <div
+                  class="swiper-button-prev c tc wf xf ie ld rg _g dh pf ml vr hh rm tl zm rl ym"
+                >
+                  <svg class="th lm" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M3.52366 7.83336L7.99366 12.3034L6.81533 13.4817L0.333663 7.00002L6.81533 0.518357L7.99366 1.69669L3.52366 6.16669L13.667 6.16669L13.667 7.83336L3.52366 7.83336Z"
+                      fill=""
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="swiper-button-next c tc wf xf ie ld rg _g dh pf ml vr hh rm tl zm rl ym"
+                >
+                  <svg class="th lm" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.4763 6.16664L6.00634 1.69664L7.18467 0.518311L13.6663 6.99998L7.18467 13.4816L6.00634 12.3033L10.4763 7.83331H0.333008V6.16664H10.4763Z" fill="" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ===== Testimonials End ===== -->
+
+      <!-- ===== Counter Start ===== -->
+      <section class="i pg qh rm ji hp">
+        <img src="images/shape-11.svg" alt="Shape" class="of h ga ha ke" />
+        <img src="images/shape-07.svg" alt="Shape" class="h ia o ae jf" />
+        <img src="images/shape-14.svg" alt="Shape" class="h ja ka" />
+        <img src="images/shape-15.svg" alt="Shape" class="h q p" />
+
+        <div class="bb ze i va ki xn br">
+          <div class="tc uf sn tn xf un gg">
+            <div class="animate_top me/5 ln rj">
+              <h2 class="gk vj zp or kk wm hc">785</h2>
+              <p class="ek bk aq">Global Brands</p>
+            </div>
+            <div class="animate_top me/5 ln rj">
+              <h2 class="gk vj zp or kk wm hc">533</h2>
+              <p class="ek bk aq">Happy Clients</p>
+            </div>
+            <div class="animate_top me/5 ln rj">
+              <h2 class="gk vj zp or kk wm hc">865</h2>
+              <p class="ek bk aq">Winning Award</p>
+            </div>
+            <div class="animate_top me/5 ln rj">
+              <h2 class="gk vj zp or kk wm hc">346</h2>
+              <p class="ek bk aq">Happy Clients</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ===== Counter End ===== -->
+
+      <!-- ===== Clients Start ===== -->
+      <section class="pj vp mr">
+        <!-- Section Title Start -->
+        <div
+          x-data="{ sectionTitle: `Trusted by Global Brands`, sectionTitleText: `We’re proud to collaborate with leading brands worldwide, delivering impactful digital solutions that drive growth and success.`}"
+        >
+          <div class="animate_top bb ze rj ki xn vq">
+    <h2
+            x-text="sectionTitle"
+            class="fk vj pr kk wm on/5 gq/2 bb _b"
+    >
+    </h2>
+    <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
+</div>
+
+
+        </div>
+        <!-- Section Title End -->
+
+        <div class="bb ze ah ch pm hj xp ki xn 2xl:ud-px-49 bc">
+          <div class="wc rf qn zf cp kq xf wf">
+            <a href="https://www.exness.com/" class="rc animate_top">
+              <img class="th wl ml il zl om" src="images/exness-removebg-preview.png" alt="Clients" />
+              <img class="xc sk ml il zl nm" src="images/exness-removebg-preview.png" alt="Clients" />
+            </a>
+            <a href="https://alaskastructures.com/" class="rc animate_top">
+              <img class="tk ml il zl om" src="images/alaska-removebg-preview (1).png" alt="Clients" />
+              <img class="xc sk ml il zl nm" src="images/alaska-removebg-preview (1).png" alt="Clients" />
+            </a>
+            <a href="https://stockstrategy.net/" class="rc animate_top">
+              <img class="tk ml il zl om" src="images/ss-removebg-preview.png" alt="Clients" />
+              <img class="xc sk ml il zl nm" src="images/ss-removebg-preview.png" alt="Clients" />
+            </a>
+            <a href="https://processmix.com/" class="rc animate_top">
+              <img class="tk ml il zl om" src="images/pm-removebg-preview.png" alt="Clients" />
+              <img class="xc sk ml il zl nm" src="images/pm-removebg-preview.png" alt="Clients" />
+            </a>
+            <a href="https://7cgi.com/" class="rc animate_top">
+              <img class="tk ml il zl om" src="images/7CGI.PNG" alt="Clients" />
+              <img class="xc sk ml il zl nm" src="images/7CGI.PNG" alt="Clients" />
+            </a>
+            <a href="https://airtalkwireless.com/" class="rc animate_top">
+              <img class="tk ml il zl om" src="images/AT.PNG" alt="Clients" />
+              <img class="xc sk ml il zl nm" src="images/AT.PNG" alt="Clients" />
+            </a>
+          </div>
+        </div>
+      </section>
+      <!-- ===== Clients End ===== -->
+
+      <!-- ===== Blog Start ===== -->
+      <section class="ji gp uq">
+        <!-- Section Title Start -->
+        <div
+          x-data="{ sectionTitle: `Latest Blogs & News`, sectionTitleText: `Blogs are coming soon `}"
+        >
+          <div class="animate_top bb ze rj ki xn vq">
+    <h2
+            x-text="sectionTitle"
+            class="fk vj pr kk wm on/5 gq/2 bb _b"
+    >
+    </h2>
+    <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
+</div>
+
+
+        </div>
+        <!-- Section Title End -->
+
+        <div class="bb ye ki xn vq jb jo">
+          <div class="wc qf pn xo zf iq">
+           
+          </div>
+        </div>
+      </section>
+      <!-- ===== Blog End ===== -->
+
+      <!-- ===== Contact Start ===== -->
+      <section id="support" class="i pg fh rm ji gp uq">
+        <!-- Bg Shapes -->
+        <img src="images/shape-06.svg" alt="Shape" class="h aa y" />
+        <img src="images/shape-03.svg" alt="Shape" class="h ca u" />
+        <img src="images/shape-07.svg" alt="Shape" class="h w da ee" />
+        <img src="images/shape-12.svg" alt="Shape" class="h p s" />
+        <img src="images/shape-13.svg" alt="Shape" class="h r q" />
+
+        <!-- Section Title Start -->
+        <div
+          x-data="{ sectionTitle: `Let’s Stay Connected`, sectionTitleText: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.`}"
+        >
+          <div class="animate_top bb ze rj ki xn vq">
+    <h2
+            x-text="sectionTitle"
+            class="fk vj pr kk wm on/5 gq/2 bb _b"
+    >
+    </h2>
+    <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
+</div>
+
+
+        </div>
+        <!-- Section Title End -->
+
+        <div class="i va bb ye ki xn wq jb mo">
+          <div class="tc uf sn tf rn un zf xl:gap-10">
+            <div class="animate_top w-full mn/5 to/3 vk sg hh sm yh rq i pg">
+              <!-- Bg Shapes -->
+              <img src="images/shape-03.svg" alt="Shape" class="h la x wd" />
+              <img src="images/shape-06.svg" alt="Shape" class="h la ma ne kf" />
+
+              <div class="fb">
+                <h4 class="wj kk wm cc">Email Address</h4>
+                <p><a href="#">Contact@linkriseagency.com</a></p>
+              </div>
+              <div class="fb">
+                <h4 class="wj kk wm cc">Office Location</h4>
+                <p>Suite 4 Freckleton Business Centre
+
+Blackburn with Darwen</p>
+              </div>
+              <div class="fb">
+                <h4 class="wj kk wm cc">Phone Number</h4>
+                <p><a href="#">+44 7587 420245</a></p>
+              </div>
+             
+
+              <span class="rc nd rh tm lc fb"></span>
+
+              <div>
+                <h4 class="wj kk wm qb">Social Media</h4>
+                <ul class="tc wf fg">
+                  <li>
+                    <a href="" class="c tc wf xf ie ld rg ml il tl">
+                      <svg class="th lm ml il" width="11" height="20" viewBox="0 0 11 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M6.83366 11.3752H9.12533L10.042 7.7085H6.83366V5.87516C6.83366 4.931 6.83366 4.04183 8.667 4.04183H10.042V0.96183C9.74316 0.922413 8.61475 0.833496 7.42308 0.833496C4.93433 0.833496 3.16699 2.35241 3.16699 5.14183V7.7085H0.416992V11.3752H3.16699V19.1668H6.83366V11.3752Z"
+                          fill=""
+                        />
+                      </svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="c tc wf xf ie ld rg ml il tl">
+                      <svg class="th lm ml il" width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M19.3153 2.18484C18.6155 2.4944 17.8733 2.6977 17.1134 2.78801C17.9144 2.30899 18.5138 1.55511 18.8001 0.666844C18.0484 1.11418 17.2244 1.42768 16.3654 1.59726C15.7885 0.979958 15.0238 0.57056 14.1901 0.432713C13.3565 0.294866 12.5007 0.436294 11.7558 0.835009C11.0108 1.23372 10.4185 1.86739 10.0708 2.63749C9.72313 3.40759 9.63963 4.27098 9.83327 5.09343C8.30896 5.01703 6.81775 4.62091 5.45645 3.93079C4.09516 3.24067 2.89423 2.27197 1.93161 1.08759C1.59088 1.67284 1.41182 2.33814 1.41278 3.01534C1.41278 4.34451 2.08928 5.51876 3.11778 6.20626C2.50912 6.1871 1.91386 6.02273 1.38161 5.72685V5.77451C1.38179 6.65974 1.68811 7.51766 2.24864 8.20282C2.80916 8.88797 3.58938 9.3582 4.45703 9.53376C3.89201 9.68688 3.29956 9.70945 2.72453 9.59976C2.96915 10.3617 3.44595 11.0281 4.08815 11.5056C4.73035 11.9831 5.50581 12.2478 6.30594 12.2627C5.51072 12.8872 4.60019 13.3489 3.62642 13.6213C2.65264 13.8938 1.63473 13.9716 0.630859 13.8503C2.38325 14.9773 4.4232 15.5756 6.50669 15.5737C13.5586 15.5737 17.415 9.73176 17.415 4.66535C17.415 4.50035 17.4104 4.33351 17.4031 4.17035C18.1537 3.62783 18.8016 2.95578 19.3162 2.18576L19.3153 2.18484Z"
+                          fill=""
+                        />
+                      </svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="c tc wf xf ie ld rg ml il tl">
+                      <svg class="th lm ml il" width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M4.36198 2.58327C4.36174 3.0695 4.16835 3.53572 3.82436 3.87937C3.48037 4.22301 3.01396 4.41593 2.52773 4.41569C2.0415 4.41545 1.57528 4.22206 1.23164 3.87807C0.887991 3.53408 0.69507 3.06767 0.695313 2.58144C0.695556 2.09521 0.888943 1.62899 1.23293 1.28535C1.57692 0.941701 2.04333 0.748781 2.52956 0.749024C3.01579 0.749267 3.48201 0.942654 3.82566 1.28664C4.1693 1.63063 4.36222 2.09704 4.36198 2.58327ZM4.41698 5.77327H0.750313V17.2499H4.41698V5.77327ZM10.2103 5.77327H6.56198V17.2499H10.1736V11.2274C10.1736 7.87244 14.5461 7.56077 14.5461 11.2274V17.2499H18.167V9.98077C18.167 4.32494 11.6953 4.53577 10.1736 7.31327L10.2103 5.77327Z"
+                          fill=""
+                        />
+                      </svg>
+                    </a>
+                  </li>
+                
+                </ul>
+              </div>
+            </div>
+
+            <div class="animate_top w-full nn/5 vo/3 vk sg hh sm yh tq">
+              <form action="https://formbold.com/s/unique_form_id" method="POST">
+                <div class="tc sf yo ap zf ep qb">
+                  <div class="vd to/2">
+                    <label class="rc ac" for="fullname">Full name</label>
+                    <input
+                      type="text"
+                      name="fullname"
+                      id="fullname"
+                      placeholder="Devid Wonder"
+                      class="vd ph sg zk xm _g ch pm hm dm dn em pl/50 xi mi"
+                    />
+                  </div>
+
+                  <div class="vd to/2">
+                    <label class="rc ac" for="email">Email address</label>
+                    <input
+                      t ype="email"
+                      name="email"
+                      id="email"
+                      placeholder="example@gmail.com"
+                      class="vd ph sg zk xm _g ch pm hm dm dn em pl/50 xi mi"
+                    />
+                  </div>
+                </div>
+
+                <div class="tc sf yo ap zf ep qb">
+                  <div class="vd to/2">
+                    <label class="rc ac" for="phone">Phone number</label>
+                    <input
+                      type="text"
+                      name="phone"
+                      id="phone"
+                      placeholder="+009 3342 3432"
+                      class="vd ph sg zk xm _g ch pm hm dm dn em pl/50 xi mi"
+                    />
+                  </div>
+
+                  <div class="vd to/2">
+                    <label class="rc ac" for="subject">Subject</label>
+                    <input
+                      type="text"
+                      for="subject"
+                      id="subject"
+                      placeholder="Type your subject"
+                      class="vd ph sg zk xm _g ch pm hm dm dn em pl/50 xi mi"
+                    />
+                  </div>
+                </div>
+
+                <div class="fb">
+                  <label class="rc ac" for="message">Message</label>
+                  <textarea
+                    placeholder="Message"
+                    rows="4"
+                    name="message"
+                    id="message"
+                    class="vd ph sg zk xm _g ch pm hm dm dn em pl/50 ci"
+                  ></textarea>
+                </div>
+
+                <div class="tc xf">
+                  <button class="vc rg lk gh ml il hi gi _l">Send Message</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ===== Contact End ===== -->
+
+      <!-- ===== CTA Start ===== -->
+      <section class="i pg gh ji">
+  <!-- Bg Shape -->
+  <img class="h p q" src="images/shape-16.svg" alt="Bg Shape" />
+
+  <div class="bb ye i z-10 ki xn dr">
+    <div class="tc uf sn tn un gg">
+      <div class="animate_left to/2">
+        <h2 class="fk vj zp pr lk ac">
+            Join with 5000+ Startups Growing with Base.
+        </h2>
+        <p class="lk">
+           Empower your growth with smart tools and seamless performance — because your startup deserves to lead, not follow.
+        </p>
+      </div>
+      <div class="animate_right bf">
+        <a href="#" class="vc ek kk hh rg ol il cm gi hi">
+            Get Started Now
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <!-- ===== CTA End ===== -->
+    </main>
+    <!-- ===== Footer Start ===== -->
+    <footer>
+  <div class="bb ze ki xn 2xl:ud-px-0">
+    <!-- Footer Top -->
+    <div class="ji gp">
+      <div class="tc uf ap gg fp">
+        <div class="animate_top zd/2 to/4">
+          <a href="index.html" style="font-size: 28px; font-weight: 800; color: #2563eb; display: inline-block; line-height: 1; margin-top: 4px;">
+  LinkRise Agency
+</a>
+
+          <p class="lc fb">Elevating brands through innovative digital strategies and measurable success.</p>
+
+          <ul class="tc wf cg">
+            <li>
+              <a href="https://www.facebook.com/share/1BKf1EtWmC/?mibextid=wwXIfr">
+                <svg class="vh ul cl il" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_48_1499)">
+                    <path d="M14 13.5H16.5L17.5 9.5H14V7.5C14 6.47 14 5.5 16 5.5H17.5V2.14C17.174 2.097 15.943 2 14.643 2C11.928 2 10 3.657 10 6.7V9.5H7V13.5H10V22H14V13.5Z" fill="" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_48_1499">
+                      <rect width="24" height="24" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </a>
+            </li>
+<li>
+  <a href="#">
+    <svg class="vh ul cl il" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M7.75 2C4.57436 2 2 4.57436 2 7.75V16.25C2 19.4256 4.57436 22 7.75 22H16.25C19.4256 22 22 19.4256 22 16.25V7.75C22 4.57436 19.4256 2 16.25 2H7.75ZM7.75 4H16.25C18.3117 4 20 5.68826 20 7.75V16.25C20 18.3117 18.3117 20 16.25 20H7.75C5.68826 20 4 18.3117 4 16.25V7.75C4 5.68826 5.68826 4 7.75 4ZM17.5 5.5C17.2239 5.5 17 5.72386 17 6C17 6.27614 17.2239 6.5 17.5 6.5C17.7761 6.5 18 6.27614 18 6C18 5.72386 17.7761 5.5 17.5 5.5ZM12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7ZM12 9C13.6569 9 15 10.3431 15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9Z"
+        fill="" />
+    </svg>
+  </a>
+</li>
+
+            <li>
+              <a href="#">
+                <svg class="vh ul cl il" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_48_1505)">
+                    <path
+                      d="M6.94 5.00002C6.93974 5.53046 6.72877 6.03906 6.35351 6.41394C5.97825 6.78883 5.46944 6.99929 4.939 6.99902C4.40857 6.99876 3.89997 6.78779 3.52508 6.41253C3.1502 6.03727 2.93974 5.52846 2.94 4.99802C2.94027 4.46759 3.15124 3.95899 3.5265 3.5841C3.90176 3.20922 4.41057 2.99876 4.941 2.99902C5.47144 2.99929 5.98004 3.21026 6.35492 3.58552C6.72981 3.96078 6.94027 4.46959 6.94 5.00002ZM7 8.48002H3V21H7V8.48002ZM13.32 8.48002H9.34V21H13.28V14.43C13.28 10.77 18.05 10.43 18.05 14.43V21H22V13.07C22 6.90002 14.94 7.13002 13.28 10.16L13.32 8.48002Z"
+                      fill=""
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_48_1505">
+                      <rect width="24" height="24" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </a>
+            </li>
+           
+          </ul>
+        </div>
+
+        <div class="vd ro tc sf rn un gg vn">
+         
+
+          <div class="animate_top">
+            <h4 class="kk wm tj ec">Services</h4>
+
+            <ul>
+              <li><a href="#" class="sc xl vb">Digital Marketing</a></li>
+              <li><a href="#" class="sc xl vb">SEO Optimization</a></li>
+              <li><a href="#" class="sc xl vb">Link Building</a></li>
+              <li><a href="#" class="sc xl vb">Guest Posting</a></li>
+                 <li><a href="#" class="sc xl vb">Content Writing</a></li>
+                    <li><a href="#" class="sc xl vb">Web Development</a></li>
+            </ul>
+          </div>
+
+          <div class="animate_top">
+            <h4 class="kk wm tj ec">Quick Links</h4>
+
+            <ul>
+              <li><a href="#" class="sc xl vb">Home</a></li>
+              <li><a href="#" class="sc xl vb">Team</a></li>
+              <li><a href="#" class="sc xl vb">Blogs</a></li>
+              <li><a href="#" class="sc xl vb">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <div class="animate_top">
+            <h4 class="kk wm tj ec">Newsletter</h4>
+            <p class="ac qe">Subscribe to receive future updates</p>
+
+            <form action="https://formbold.com/s/unique_form_id" method="POST">
+              <div class="i">
+                <input
+                  type="text"
+                  placeholder="Email address"
+                  class="vd sm _g ch pm vk xm rg gm dm dn gi mi"
+                />
+
+                <button class="h q fi">
+                  <svg class="th vm ul" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_48_1487)">
+                      <path
+                        d="M3.1175 1.17318L18.5025 9.63484C18.5678 9.67081 18.6223 9.72365 18.6602 9.78786C18.6982 9.85206 18.7182 9.92527 18.7182 9.99984C18.7182 10.0744 18.6982 10.1476 18.6602 10.2118C18.6223 10.276 18.5678 10.3289 18.5025 10.3648L3.1175 18.8265C3.05406 18.8614 2.98262 18.8792 2.91023 18.8781C2.83783 18.8769 2.76698 18.857 2.70465 18.8201C2.64232 18.7833 2.59066 18.7308 2.55478 18.6679C2.51889 18.6051 2.50001 18.5339 2.5 18.4615V1.53818C2.50001 1.46577 2.51889 1.39462 2.55478 1.33174C2.59066 1.26885 2.64232 1.2164 2.70465 1.17956C2.76698 1.14272 2.83783 1.12275 2.91023 1.12163C2.98262 1.12051 3.05406 1.13828 3.1175 1.17318ZM4.16667 10.8332V16.3473L15.7083 9.99984L4.16667 3.65234V9.16651H8.33333V10.8332H4.16667Z"
+                        fill=""
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_48_1487">
+                        <rect width="20" height="20" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer Top -->
+
+    <!-- Footer Bottom -->
+    <div class="bh ch pm tc uf sf yo wf xf ap cg fp bj">
+      <div class="animate_top">
+        <ul class="tc wf gg">
+          <li><a href="#" class="xl">English</a></li>
+          <li><a href="#" class="xl">Privacy Policy</a></li>
+          <li><a href="#" class="xl">Support</a></li>
+        </ul>
+      </div>
+
+      <div class="animate_top">
+        <p>&copy; 2025 Base. All rights reserved</p>
+      </div>
+    </div>
+    <!-- Footer Bottom -->
+  </div>
+</footer>
+
+    <!-- ===== Footer End ===== -->
+
+    <!-- ====== Back To Top Start ===== -->
+    <button
+  class="xc wf xf ie ld vg sr gh tr g sa ta _a"
+  @click="window.scrollTo({top: 0, behavior: 'smooth'})"
+  @scroll.window="scrollTop = (window.pageYOffset > 50) ? true : false"
+  :class="{ 'uc' : scrollTop }"
+>
+  <svg class="uh se qd" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+    <path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z" />
+  </svg>
+</button>
+
+    <!-- ====== Back To Top End ===== -->
+
+    <script>
+      //  Pricing Table
+      const setup = () => {
+        return {
+          isNavOpen: false,
+
+          billPlan: 'monthly',
+
+          plans: [
+            {
+              name: 'Starter',
+              price: {
+                monthly: 29,
+                annually: 29 * 12 - 199,
+              },
+              features: ['400 GB Storaget', 'Unlimited Photos & Videos', 'Exclusive Support'],
+            },
+            {
+              name: 'Growth Plan',
+              price: {
+                monthly: 59,
+                annually: 59 * 12 - 100,
+              },
+              features: ['400 GB Storaget', 'Unlimited Photos & Videos', 'Exclusive Support'],
+            },
+            {
+              name: 'Business',
+              price: {
+                monthly: 139,
+                annually: 139 * 12 - 100,
+              },
+              features: ['400 GB Storaget', 'Unlimited Photos & Videos', 'Exclusive Support'],
+            },
+          ],
+        };
+      };
+    </script>
+  <script defer src="bundle.js"></script></body>
+</html>
