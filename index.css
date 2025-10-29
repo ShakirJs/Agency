@@ -2584,4 +2584,72 @@ h1,  h2,  h3,  h4,  h5,  h6{
     line-height: 42px;
   }
 }
+/* Navbar Links Custom Color */
+header a {
+  color: black !important;
+  transition: color 0.3s ease;
+}
+
+/* Dark Mode Navbar Links */
+.dark header a,
+[data-theme="dark"] header a {
+  color: white !important;
+}
+/* Navbar Links Normal */
+header a {
+  color: black !important;
+  transition: color 0.3s ease;
+}
+
+/* Hover Effect */
+header a:hover {
+  color: #2563eb !important; /* Blue hover */
+}
+
+/* Dark Mode Navbar Links */
+.dark header a,
+[data-theme="dark"] header a {
+  color: white !important;
+}
+
+/* Dark Mode Hover */
+.dark header a:hover,
+[data-theme="dark"] header a:hover {
+  color: #60a5fa !important; /* Light blue hover */
+}
+a.xl {
+  color: black;
+  transition: color 0.3s ease;
+}
+
+.dark a.xl {
+  color: white;
+}
+
+a.xl:hover {
+  color: #2563eb; /* optional hover color (blue) */
+}
+/* Default Light Theme */
+a.xl {
+  color: black !important;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* Hover for both themes */
+a.xl:hover {
+  color: #22c55e !important; /* Green */
+}
+
+/* Dark Theme */
+body.dark a.xl,
+.b.eh a.xl { /* because your darkMode adds class 'b eh' */
+  color: white !important;
+}
+
+/* Hover in Dark Theme */
+body.dark a.xl:hover,
+.b.eh a.xl:hover {
+  color: #22c55e !important;
+}
 
